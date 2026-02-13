@@ -12,7 +12,7 @@ class TTextFormFieldTheme {
     fillColor: TColors.textFieldFillColor,
     hintStyle: const TextStyle(fontSize: 14, color: TColors.iconGreyColor),
     errorStyle: const TextStyle(fontStyle: FontStyle.normal),
-    floatingLabelStyle: TextStyle(color: Colors.black.withOpacity(0.8)),
+    floatingLabelStyle: TextStyle(color: Colors.black.withValues(alpha: 0.8)),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
       borderSide: BorderSide.none,
@@ -43,7 +43,7 @@ class TTextFormFieldTheme {
     fillColor: TColors.darkCard,
     hintStyle: const TextStyle(fontSize: 14, color: TColors.iconGreyColor),
     errorStyle: const TextStyle(fontStyle: FontStyle.normal),
-    floatingLabelStyle: TextStyle(color: Colors.white.withOpacity(0.8)),
+    floatingLabelStyle: TextStyle(color: Colors.white.withValues(alpha: 0.8)),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14),
       borderSide: BorderSide.none,
