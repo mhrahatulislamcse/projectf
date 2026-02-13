@@ -10,7 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.8
-  get: ^4.6.6 # Added Get package
+  get: ^4.6.6
+  flutter_native_splash: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -19,3 +20,10 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+
+  # এখানে assets সেকশনটি flutter এর ঠিক নিচে ২টা স্পেস দিয়ে শুরু হবে
+  assets:
+    - assets/images/on_boarding_images/onboarding1.png
+    - assets/images/on_boarding_images/onboarding2.png
+    - assets/images/on_boarding_images/onboarding3.png
+    - assets/logos/
