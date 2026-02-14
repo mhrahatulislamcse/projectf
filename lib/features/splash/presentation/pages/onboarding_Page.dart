@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../auth/presentation/pages/login_page.dart';
+
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
 
@@ -102,7 +104,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 child: ElevatedButton(
                   onPressed: () {
                     if (currentIndex == data.length - 1) {
-                      // Navigate to Login/Home
+                      // Navigate to Login Page
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => const LoginPage()),
+                      );
                     } else {
                       _controller.nextPage(
                         duration: const Duration(milliseconds: 300),
@@ -111,7 +117,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     }
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xFFFF7622), // Orange color from image
+                    backgroundColor: const Color(0xFFFF7622),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
@@ -132,7 +138,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
               // Skip Button
               TextButton(
                 onPressed: () {
-                  // সরাসরি শেষ পেজে নিয়ে যাবে
+                  // সরাসরি শেষ স্লাইডে নিয়ে যাবে অথবা আপনি চাইলে সরাসরি লগইনেও পাঠাতে পারেন
                   _controller.animateToPage(
                     data.length - 1,
                     duration: const Duration(milliseconds: 400),

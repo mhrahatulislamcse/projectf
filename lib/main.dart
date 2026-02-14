@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:projectf/util/theme/theme.dart';
-
 import 'features/splash/presentation/splash_viewmodel.dart';
 
 void main() {
@@ -18,6 +17,7 @@ class MyApp extends StatelessWidget {
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
       home: const SplashView(),
+      // routerConfig: AppRouter.router,
     );
   }
 }
