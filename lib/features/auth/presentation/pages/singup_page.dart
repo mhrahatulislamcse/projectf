@@ -36,13 +36,21 @@ class _SingupPageState extends State<SingupPage> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+      
       Get.snackbar("Success", "Account created successfully", snackPosition: SnackPosition.BOTTOM);
-      // Navigate to Home or Login
+      
+      // Async gap fix: check if the widget is still in the tree
+      if (!mounted) return;
       Navigator.pop(context);
+      
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Error", e.message ?? "An error occurred", snackPosition: SnackPosition.BOTTOM);
+    } catch (e) {
+      Get.snackbar("Error", "Something went wrong", snackPosition: SnackPosition.BOTTOM);
     } finally {
-      setState(() => _isLoading = false);
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 

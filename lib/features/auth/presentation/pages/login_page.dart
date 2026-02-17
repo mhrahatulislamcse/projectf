@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'forgot_password_page.dart';
 import 'singup_page.dart';
+import 'location_page.dart'; // লোকেশন পেজ ইমপোর্ট করা হয়েছে
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -32,12 +33,22 @@ class _LoginPageState extends State<LoginPage> {
         email: _emailController.text.trim(),
         password: _passwordController.text.trim(),
       );
+      
       Get.snackbar("Success", "Logged in successfully", snackPosition: SnackPosition.BOTTOM);
-      // Navigate to Home Page
+      
+      // সফলভাবে লগইন হলে লোকেশন পেজে নিয়ে যাবে
+      if (!mounted) return;
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LocationPage()),
+      );
+      
     } on FirebaseAuthException catch (e) {
       Get.snackbar("Error", e.message ?? "Login failed", snackPosition: SnackPosition.BOTTOM);
     } finally {
-      setState(() => _isLoading = false);
+      if (mounted) {
+        setState(() => _isLoading = false);
+      }
     }
   }
 
